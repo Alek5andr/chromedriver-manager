@@ -1,5 +1,5 @@
 {
-  "name": "chromedriver-manager",
+  "name": "@alek5andr/chromedriver-manager",
   "version": "1.0.0",
   "description": "The manager installs version of chromedriver according to installed Google Chrome version.",
   "main": "ChromedriverManager.ts",
@@ -8,14 +8,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/Alek5andr/chromedriver-manager"
+    "url": "git+https://gitlab.com/Alek5andr/chromedriver-manager.git"
   },
   "keywords": [
     "TypeScript",
     "Chromedriver",
     "Chrome",
-    "Manager"
+    "Manager",
+    "Selenium",
+    "WebdriverIO",
+    "wdio",
+    "webdriver"
   ],
   "author": "Aleksandr Govorkov <aleks.govorkov@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Alek5andr/chromedriver-manager/issues"
+  },
+  "homepage": "https://gitlab.com/Alek5andr/chromedriver-manager#readme"
 }
