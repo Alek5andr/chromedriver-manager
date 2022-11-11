@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "poka-net"
+    "url": "https://gitlab.com/Alek5andr/chromedriver-manager"
   },
   "keywords": [
     "TypeScript",
