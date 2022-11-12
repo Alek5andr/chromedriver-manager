@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { execSync } from 'child_process';
 
 class CommandExecutor {
@@ -19,12 +21,13 @@ class CommandExecutor {
     }
 
     private getChromedriverVersionFullVersion(): string {
-        return JSON.parse(this.getChromedriverModule()).dependencies["chromedriver"].version;
+        const chromedriverObj: any = JSON.parse(this.getChromedriverModule()).dependencies["chromedriver"];
+        return chromedriverObj != undefined ? chromedriverObj.version : undefined;
     }
 
-    private getChromedriverVersionMajorVersion(): string | Error {
+    private getChromedriverVersionMajorVersion(): string | undefined {
         const array: RegExpExecArray | null = (this.versionRegEx).exec(this.getChromedriverVersionFullVersion());
-        return array != null ? array[0] : new Error('chromedriver' + this.errMsg);
+        return array != null ? array[0] : undefined;
     }
 
     private getInstalledGoogleChrome(): string {
@@ -35,18 +38,25 @@ class CommandExecutor {
         return this.getInstalledGoogleChrome().replace('Google Chrome', '');
     }
 
-    private getInstalledGoogleChromeMajorVersion(): string | Error {
+    private getInstalledGoogleChromeMajorVersion(): string | undefined {
         const array: RegExpExecArray | null = (this.versionRegEx).exec(this.getInstalledGoogleChromeFullVersion());
-        return array != null ? array[0] : new Error('Google Chrome' + this.errMsg);
+        return array != null ? array[0] : undefined;
+    }
+
+    private installChromedriver(version: string = 'latest'): string {
+        return this.execCmd('npm install --save-dev chromedriver@' + version);
     }
 
     synchronizeChromeAndChromedriver(): void {
-        let googleChromeVersion: string | Error = this.getChromedriverVersionMajorVersion();
-        let chromedriverVersion: string | Error = this.getInstalledGoogleChromeMajorVersion();
+        let googleChromeVersion: string | undefined = this.getInstalledGoogleChromeMajorVersion();
+        let chromedriverVersion: string | undefined = this.getChromedriverVersionMajorVersion();
 
+        if (googleChromeVersion === undefined) throw Error('Google Chrome' + this.errMsg)
         console.log('Google Chrome version: ' + googleChromeVersion);
         console.log('chromedriver version: ' + chromedriverVersion);
-        if (googleChromeVersion != chromedriverVersion) this.execCmd('npm install --save-dev chromedriver@latest');
+
+        if (chromedriverVersion === undefined) this.installChromedriver(googleChromeVersion);
+        if (googleChromeVersion != chromedriverVersion) this.installChromedriver();
     }
 
 }
