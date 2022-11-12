@@ -3,7 +3,7 @@ Chromedriver Manager
 
 The manager installs version of chromedriver according to installed Google Chrome version.
 
-# ! Under construction !
+# ! Upgrade in progress !
 First package
 
 # Windows only!
@@ -22,7 +22,7 @@ If You receive the following error:
 write a script in yours ```package.json``` to execute the command. For instance:
 ```
 "scripts": {
-    "sync-chromes": "install-chromedriver"
+    "sync-chromes": "ts-node node_modules/@alek5andr/chromedriver-manager/cli.ts"
 }
 ```
 Then simply execute the script in the project's terminal: ```npm run sync-chromes```.
