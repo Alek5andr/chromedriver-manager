@@ -4,7 +4,8 @@ Chromedriver Manager
 The manager installs version of chromedriver according to installed Google Chrome version.
 
 # ! Upgrade in progress !
-First package
+First package.
+Please help to make it quicker.
 
 # Windows only!
 
@@ -19,7 +20,7 @@ Install the package using ```npm install --save-dev @alek5andr/chromedriver-mana
 If You receive the following error:
 > cannot be loaded because running scripts is disabled on this system.
 
-write a script in yours ```package.json``` to execute the command. For instance:
+write a script in yours ```package.json``` to execute the following command ```ts-node node_modules/@alek5andr/chromedriver-manager/cli.ts```. For instance:
 ```
 "scripts": {
     "sync-chromes": "ts-node node_modules/@alek5andr/chromedriver-manager/cli.ts"
