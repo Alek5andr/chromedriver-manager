@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { execSync } from 'child_process';
 
 class CommandExecutor {
@@ -10,7 +8,7 @@ class CommandExecutor {
     private execCmd(cmd: string, options?: Array<string>) {
         try {
             return execSync(cmd).toString();
-        } catch (error) {
+        } catch (error: any) {
             console.log(error);
             throw Error(error.message);
         }
@@ -21,8 +19,8 @@ class CommandExecutor {
     }
 
     private getChromedriverVersionFullVersion(): string {
-        const chromedriverObj: any = JSON.parse(this.getChromedriverModule()).dependencies["chromedriver"];
-        return chromedriverObj != undefined ? chromedriverObj.version : undefined;
+        const installedDevDependencies: any = JSON.parse(this.getChromedriverModule()).dependencies;
+        return installedDevDependencies.hasOwnProperty("chromedriver") ? installedDevDependencies["chromedriver"].version : undefined;
     }
 
     private getChromedriverVersionMajorVersion(): string | undefined {
@@ -61,4 +59,4 @@ class CommandExecutor {
 
 }
 
-new CommandExecutor().synchronizeChromeAndChromedriver();
+export default new CommandExecutor();

@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "types": [
-      "node"
-    ],
+    "sourceMap": true,
     "target": "es2019",
-    "strictPropertyInitialization": true,
-    "strictNullChecks": true,
-    "noImplicitAny": true,
     "allowSyntheticDefaultImports": true,
-    "module": "commonjs",
     "moduleResolution": "Node",
-    "esModuleInterop": true
-  }
+    "module": "commonjs",
+    "lib": ["es6", "es2015", "dom"],
+    "declaration": true,
+    "types": ["node"],
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "./node_modules"
+  ]
 }
