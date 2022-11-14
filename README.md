@@ -24,10 +24,10 @@ Then execute the following command in your project's terminal: ```install-chrome
 If You receive the following error:
 > cannot be loaded because running scripts is disabled on this system.
 
-write a script in yours ```package.json``` to execute the following command ```ts-node node_modules/@alek5andr/chromedriver-manager/cli.ts```. For instance:
+write a script in yours ```package.json``` to execute the following command ```install-chromedriver```. For instance:
 ```
 "scripts": {
-    "sync-chromes": "ts-node node_modules/@alek5andr/chromedriver-manager/cli.ts"
+    "sync-chromes": "install-chromedriver"
 }
 ```
 Then simply execute the script in the project's terminal: ```npm run sync-chromes```.

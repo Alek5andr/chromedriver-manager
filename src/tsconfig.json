@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
+    "outDir": "../dist/",
     "target": "es2019",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node",
@@ -12,6 +13,6 @@
     "resolveJsonModule": true
   },
   "exclude": [
-    "./node_modules"
+    "../node_modules"
   ]
 }
