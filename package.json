@@ -1,6 +1,6 @@
 {
   "name": "@alek5andr/chromedriver-manager",
-  "version": "1.3.2",
+  "version": "1.4.2",
   "description": "The manager installs version of chromedriver according to installed Google Chrome version.",
   "main": "index.js",
   "scripts": {
